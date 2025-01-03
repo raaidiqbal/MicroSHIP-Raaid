@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <title>{{ info[4] }} | Details</title>
+        <link rel="stylesheet" type="text/css" href={{ url_for('static', filename='singleshowstyle.css') }}>
+        <link rel="stylesheet" type="text/css" href={{ url_for('static', filename='global.css' ) }}>
+        <link href='https://fonts.googleapis.com/css?family=Mina' rel='stylesheet'>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><label for="home">HOME</label><a id="home" class="navbaritem" href="/">Home</a></li>
+                    <li><label for="rankings">Rankings</label><a id="rankings" class="navbaritem" href="/rankings">Rankings</a></li>
+                    <li><label for="random">Random</label><a id="random" class="navbaritem" href="/random">Random</a></li>
+                    <li><label for="guide">Guide</label><a id="guide" class="navbaritem" href="/guide">Guide</a></li>
+                    <li><label for="about">About</label><a id="about" class="navbaritem" href="/about">About</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="contain">
+            <div class="left">
+                <div class="imgcontainer {{ 'blur' if blur else '' }}">
+                    <img src={{ imageLink }} alt={{ info[4] }}>
+                </div>
+                <div class="titlecontainter">
+                    <h1>{{ info[4] }}</h1>
+                </div>
+            </div>
+            <div class="right">
+                <div class="info">
+                    <table cellspacing=0>
+                        <col style="width:25%" span="4" />
+                        <tr class="categories">
+                            <td class="categories">MAL ID</td>
+                            <td class="categories">Score</td>
+                            <td class="categories">Genres</td>
+                            <td class="categories">Popularity</td>
+                        </tr>
+                        <tr>
+                            <td class="data">{{info[3]}}</td>
+                            <td class="data">{{info[5]}}</td>
+                            <td class="data">{{info[6]}}</td>
+                            <td class="data">{{info[12]}}</td>
+                        </tr>
+                    </table>
+                    <table cellspacing=0>
+                        <tr class="categories">
+                            <td class="categories">Episodes</td>
+                            <td class="categories">Duration</td>
+                            <td class="categories">Content Rating</td>
+                            <td class="categories">Type</td>
+                        </tr>
+                        <tr>
+                            <td class="data">{{info[7]}}</td>
+                            <td class="data">{{info[11]}}</td>
+                            <td class="data">{{info[13]}}</td>
+                            <td class="data">{{info[14]}}</td>
+                        </tr>
+                    </table>
+                    <table cellspacing=0>
+                        <tr class="categories">
+                            <td class="categories">Producers</td>
+                            <td class="categories">Studios</td>
+                            <td class="categories">Source</td>
+                            <td class="categories">Air Dates</td>
+                        </tr>
+                        <tr>
+                            <td class="data">{{info[9]}}</td>
+                            <td class="data">{{info[10]}}</td>
+                            <td class="data">{{info[15]}}</td>
+                            <td class="data">{{info[8]}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <a href="/" class="goback">
+                    <button>Go back to homepage</button>
+                </a>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Error 500 | Next Episode</title>
+        <link rel="stylesheet" type="text/css" href={{ url_for('static', filename='homepage.css') }}>
+        <link rel="stylesheet" type="text/css" href={{ url_for('static', filename='global.css' ) }}>
+        <link href='https://fonts.googleapis.com/css?family=Mina' rel='stylesheet'>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><label for="home">HOME</label><a id="home" class="navbaritem" href="/">Home</a></li>
+                    <li><label for="rankings">Rankings</label><a id="rankings" class="navbaritem" href="/rankings">Rankings</a></li>
+                    <li><label for="random">Random</label><a id="random" class="navbaritem" href="/random">Random</a></li>
+                    <li><label for="guide">Guide</label><a id="guide" class="navbaritem" href="/guide">Guide</a></li>
+                    <li><label for="about">About</label><a id="about" class="navbaritem" href="/about">About</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="contain">
+            <div class="title">
+                <p class="title">Uh oh! Something failed to run behind the scenes.</p>
+                <p class="error"><br>
+                    For now you can return to the homepage, make sure the URL follows the guidelines, and contact the developers for help!<br>
+            </div>
+        </div>
+        <br><br><br>
+        <br>
+    </div>
+</body> 
+</html>

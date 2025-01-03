@@ -1,0 +1,119 @@
+<html>
+    <head>
+        <title>Next Episode</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" type="text/css" href={{ url_for('static', filename='homepage.css') }}>
+        <link rel="stylesheet" type="text/css" href={{ url_for('static', filename='global.css' ) }}>
+        <link href='https://fonts.googleapis.com/css?family=Mina' rel='stylesheet'>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+        <script src={{ url_for('static', filename='scripts/homepage.js') }} defer></script>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">        
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><label for="home">HOME</label><a id="home" class="navbaritem selected" href="/">Home</a></li>
+                    <li><label for="rankings">Rankings</label><a id="rankings" class="navbaritem" href="/rankings">Rankings</a></li>
+                    <li><label for="random">Random</label><a id="random" class="navbaritem" href="/random">Random</a></li>
+                    <li><label for="guide">Guide</label><a id="guide" class="navbaritem" href="/guide">Guide</a></li>
+                    <li><label for="about">About</label><a id="about" class="navbaritem" href="/about">About</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="global">
+            <div class="contain">
+                <div class="title">
+                    <p class="title">Next Episode</p>
+                    <p class="c title">|</p>
+                    <p class="subtitle"><br>Your next favorite anime is only minutes away.</p>
+                </div>
+                <div class="search">
+                    <form action="/search" id="searchForm">
+                        <label for="searchbar">Search Bar</label><input id="searchbar" type="text" name="title" class="bar"
+                            placeholder="Search" />
+                        
+                        <script>
+                            $(document).ready(function ()
+                            {
+                                var availableTags = [
+                                    {% for anime in animes %}
+                                                "{{ anime }}",
+                                {% endfor %}
+                                        ];
+                            $("#searchbar").autocomplete({
+                                source: availableTags,
+                                minLength: 3,
+                            });
+                                    });                                            
+                        </script>
+                        <label for="submitbutton">Submit</label><button id="submitbutton" type="submit" class="submit" value="">
+                                <img src="https://cdn2.iconfinder.com/data/icons/clean-simple/75/search-512.png" alt="Magnifying Glass" width="40" height="40">
+                            </a></button>
+                        <br>
+                        
+                    </form>
+                </div>
+                <div style="width:100%">
+                    <button class="menubutton" type="button" id="tags" value="Tags" onclick="toggleDiv('filter')">Choose Genres</button>
+                    <button class="menubutton" type="button" id="blacklist" value="Blacklist" onclick="toggleDiv('exclude')">Blacklist Genres</button>
+                </div>
+                <br>
+            </div>
+
+            <!-- Filtering menu -->
+            <div class="overlay" id="filter" style="display: none;">
+                <div class="overlayHeader">
+                    <div class="overlaytitle">
+                        <h1 style="margin: 0;">Filter by Genres</h1>
+                        <p style="margin: 0;">Select the genres that results must contain</p>
+                    </div>
+                    <div class="overlaybutton">
+                        <div class="top">
+                            <button onclick="clearAll('filter')" class="clearall" value="Clear All">Clear</button>
+                            <button onclick="toggleDiv('filter')" class="apply" value="Apply">Apply</button>
+                        </div>
+                        <div class="bottom">
+                            <button type="submit" form="searchForm" class="ss" value="Search">Search</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="buttonContainer">
+                    {% for g in genres%}
+                    <button class="option" data-type="genre" data-enabled="false" data-name="{{- g.replace(' ', '_') -}}">{{g}}</button>
+                    {%endfor%}
+                </div>
+            </div>
+
+            <!-- Blacklisting menu -->
+            <div class="overlay" id="exclude" style="display: none;">
+                <div class="overlayHeader">
+                    <div class="overlaytitle">
+                        <h1 style="margin: 0;">Exclude Genres From Search</h1>
+                        <p style="margin: 0;">Prevent results from containing genres</p>
+                    </div>
+                    <div class="overlaybutton">
+                        <div class="top">
+                            <button onclick="clearAll('exclude')" class="clearall" value="Clear All">Clear</button>
+                            <button onclick="toggleDiv('exclude')" class="apply" value="Apply">Apply</button>
+                        </div>
+                        <div class="bottom">
+                            <button type="submit" form="searchForm" class="ss" value="Search">Search</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="buttonContainer">
+                    {% for g in genres%}
+                    <button class="option" data-type="exclude" data-enabled="false" data-name="{{- g.replace(' ', '_') -}}">{{g}}</button>
+                    {%endfor%}
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p>&copy; 2024 MicroSHIP</p>
+        </footer>
+
+    </body> 
+</html>

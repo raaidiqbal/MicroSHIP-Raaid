@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Rankings | Next Episode</title>
+        <link rel="stylesheet" type="text/css" href={{ url_for('static', filename='showlist.css') }}>
+        <link rel="stylesheet" type="text/css" href={{ url_for('static', filename='global.css' ) }}>
+        <link href='https://fonts.googleapis.com/css?family=Mina' rel='stylesheet'>
+    </head>
+    <body style="max-height: 100%;">
+
+        <header>
+            <nav>
+                <ul>
+                    <li><label for="home">HOME</label><a id="home" class="navbaritem" href="/">Home</a></li>
+                    <li><label for="rankings">Rankings</label><a id="rankings" class="navbaritem selected" href="/rankings">Rankings</a></li>
+                    <li><label for="random">Random</label><a id="random" class="navbaritem" href="/random">Random</a></li>
+                    <li><label for="guide">Guide</label><a id="guide" class="navbaritem" href="/guide">Guide</a></li>
+                    <li><label for="about">About</label><a id="about" class="navbaritem" href="/about">About</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="resultstitle">
+            <h1>Top {{limit}} Anime</h1>
+        </div> 
+
+            <form action="/rankings" method="get">
+                <label for="limit">Select number of anime to display:</label>
+                <select id="limit" name="limit">
+                    <option value="25" {% if limit == 25 %} selected {% endif %}>25</option>
+                    <option value="50" {% if limit == 50 %} selected {% endif %}>50</option>
+                    <option value="75" {% if limit == 75 %} selected {% endif %}>75</option>
+                    <option value="100" {% if limit == 100 %} selected {% endif %}>100</option>
+                    <option value="200" {% if limit == 200 %} selected {% endif %}>200</option>
+                </select>
+                <button type="submit" class="applyrank">Apply</button>
+            </form>
+            <div style="max-height: 73vh; overflow-y: scroll; border-radius: 3vh; margin:auto; width: 100%;">
+             <table cellspacing=0>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Title</th>
+                        <th>Score (out of 10)</th>
+                        <th>Genres</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for anime in top_animes %}
+                    <tr onclick='window.location = "/title?title={{anime[4]}}"' class="actualrow">
+                        <td>{{ loop.index }}</td>
+                        <td>{{ anime[4] }}</a></td>
+                        <td>{{ anime[5] }}</td>
+                        <td>{{ anime[6] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            </div>
+    </body>
+</html>

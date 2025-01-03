@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Next Episode</title>
+        <link rel="stylesheet" type="text/css" href={{ url_for('static', filename='homepage.css') }}>
+        <link rel="stylesheet" type="text/css" href={{ url_for('static', filename='global.css' ) }}>
+        <link href='https://fonts.googleapis.com/css?family=Mina' rel='stylesheet'>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><label for="home">HOME</label><a id="home" class="navbaritem" href="/">Home</a></li>
+                    <li><label for="rankings">Rankings</label><a id="rankings" class="navbaritem" href="/rankings">Rankings</a></li>
+                    <li><label for="random">Random</label><a id="random" class="navbaritem" href="/">Random</a></li>
+                    <li><label for="about">About</label><a id="about" class="navbaritem" href="/about">About</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="contain">
+            <div class="title">
+                <p class="title">Page not found.</p>
+                <p class="error"><br>
+                Make sure you put the right name of the Anime in the search bar!<br>
+                <p class="error-extra">
+                For tech-savvier people, remember that the URL convention for basic features is <b>/title?title=(name of title)</b> or <b>/genres?genre=(genres to search by)</b><br></p>
+                <p class="error-extra2">
+                For example, <b>/title?title=Trigun</b> returns information of an Anime with the title Trigun<br>
+                <b>/genres?genre=Action</b> returns a table of Anime titles whose genre is Action<br>
+                <b>/genres?genre=Action&genre=Comedy</b> returns a table of Anime titles whose genre is action AND comedy!</p>
+            </div>
+        </div>
+        <br><br><br>
+        <br>
+    </div>
+</body> 
+</html>

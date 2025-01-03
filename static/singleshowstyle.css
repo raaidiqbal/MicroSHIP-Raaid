@@ -1,0 +1,136 @@
+div {
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin: 2%;
+    overflow: auto;
+    text-align: center;
+}
+
+img {
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    padding: 2%;
+    table-layout: fixed;
+    border-spacing: 0px;
+}
+
+td {
+    text-align: center;
+    border-collapse: collapse;
+    padding: 1%;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    border-right: 1px dashed gray;
+    border-left: 1px dashed gray;
+    background-color: rgb(122, 49, 61); 
+}
+
+td.categories:first-child {
+    border-top-left-radius: 10px;
+    border-top: 1px solid gray;
+    border-left: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+
+td.data:first-child {
+    border-bottom-left-radius: 10px;
+    border-top: 1px solid gray;
+    border-left: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+
+td.categories:last-child {
+    border-top-right-radius: 10px;
+    border-top: 1px solid gray;
+    border-right: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+
+td.data:last-child {
+    border-bottom-right-radius: 10px;
+    border-top: 1px solid gray;
+    border-right: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+
+tr.categories {
+    font-size: large;
+    font-weight: bolder;
+}
+
+.contain {
+    display: flex;
+    background-color: rgba(88, 58, 58, 0.623);
+    margin-top: 6%;
+}
+
+.left {
+    width: 30%;
+    float: left;
+    background-color: rgb(65, 50, 50);
+}
+
+.right {
+    width: 70%;
+    flex: auto;
+    background-color: rgb(65, 50, 50);
+}
+
+.imgcontainer {
+    height: auto;
+    background-color: rgb(55, 50, 50);
+}
+
+.titlecontainer {
+    height: auto;
+    background-color: rgb(81, 56, 56);
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    background-color: rgb(104, 73, 73);
+}
+
+.morelike {
+    flex: auto;
+}
+
+.goback {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.goback button {
+    color: #E8DDB5;
+    border: 2px solid #D08A93; 
+    background-color: #8C3A47;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: 'Mina';
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.goback button:hover {
+    background-color: #d29090;
+    color: #1e1e1e; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.blur img {
+    filter: blur(15px);
+}
+
+/*
+We may choose to add this for the final version.
+.blur img:hover {
+    transition-duration: 1s;
+    filter: none;
+}
+*/

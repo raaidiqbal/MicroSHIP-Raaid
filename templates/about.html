@@ -1,0 +1,55 @@
+<head>
+    <meta charset="UTF-8">
+    <title>About Us | Next Episode</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='global.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='homepage.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Mina' rel='stylesheet'>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><label for="home">HOME</label><a id="home" class="navbaritem" href="/">Home</a></li>
+                <li><label for="rankings">Rankings</label><a id="rankings" class="navbaritem" href="/rankings">Rankings</a></li>
+                <li><label for="random">Random</label><a id="random" class="navbaritem" href="/random">Random</a></li>
+                <li><label for="guide">Guide</label><a id="guide" class="navbaritem" href="/guide">Guide</a></li>
+                <li><label for="about">About</label><a id="about" class="navbaritem selected" href="/about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+        <div class="about">
+            <h1 class="abouttitle">About Next Episode</h1>
+            <p>
+                Welcome to <strong>Next Episode</strong>, your go-to website for discovering and exploring a massive database of anime shows and movies. Our website is designed to provide an engaging and comprehensive search experience, helping you find exactly what you're looking for based on your individual tastes and preferences. The website can be used by seasoned anime watchers and newcomers alike.
+            </p>
+
+            <h2>Features</h2>
+
+            <article class="feature">
+                <h3><b>Guide</b></h3>
+                <p>The guide is intended to define various anime terms in our dataset for those unfamiliar with them. Additionally, we define all of the genres in our dataset. You can click on any of the genres listed to display the list of anime from that genre in our dataset.</p>
+            </article>
+
+            <article class="feature">
+                <h3><b>Rankings</b></h3>
+                <p>The rankings page showcases the highest rated anime shows and movies, curated and updated based on user ratings from MyAnimeList. Here, you can find the highest-rated content, making it easy to dive into the best of what the anime world has to offer. You can click on a row for a particular anime to get its information displayed in a more coherent way.</p>
+            </article>
+
+            <article class="feature">
+                <h3><b>Random</b></h3>
+                <p>The random button chooses a random anime from our dataset and displays information about it for when you are indecisive or in the mood for a surprise.</p>
+            </article>
+
+            <article class="feature">
+                <h3><b>Search Bar</b></h3>
+                <p>You can type in the title of an anime or anime franchise in the search bar on the homepage and then click on the magnifying glass to search. Additionally, you can search by part of a title if you would like. This will display a list of results best matching your search. When search results are shown, can click on a row to display the information about that anime in a more coherent way.</p>
+            </article>
+
+            <article class="feature">
+                <h3><b>Filtering by Genres</b></h3>
+                <p>To search for specific genres, click on the "Choose Genres" button on the homepage. From here you can click on the genres you want to filter by and then either hit the "Search" button to search from that page or the "Apply" button to save the genres that you want to search for and click the magnifying glass button on the homepage after entering something in the search bar to search. You can clear your selected genres by clicking the "Clear" button on the page with the list of genres. Furthermore, you can exclude genres from a search by following the same process using the "Blacklist Genres" button.</p>
+            </article>
+        </div>
+</body>

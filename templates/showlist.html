@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>Search Results | Next Episode</title>
+        <link rel="stylesheet" type="text/css" href={{ url_for('static', filename='showlist.css') }}>
+        <link rel="stylesheet" type="text/css" href={{ url_for('static', filename='global.css' ) }}>
+        <link href='https://fonts.googleapis.com/css?family=Mina' rel='stylesheet'>
+    </head>
+    <body style="max-height: 100%;">
+        <header>            
+            <nav>
+                <ul>
+                    <li><label for="home">HOME</label><a id="home" class="navbaritem" href="/">Home</a></li>
+                    <li><label for="rankings">Rankings</label><a id="rankings" class="navbaritem" href="/rankings">Rankings</a></li>
+                    <li><label for="random">Random</label><a id="random" class="navbaritem" href="/random">Random</a></li>
+                    <li><label for="guide">Guide</label><a id="guide" class="navbaritem" href="/guide">Guide</a></li>
+                    <li><label for="about">About</label><a id="about" class="navbaritem" href="/about">About</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="resultstitle">
+            <h1>Search Results for {% if query and query != '' and genres and blacklist %} "{{ query }}" with genres: "{{ genres | join(', ') }}" excluding: "{{ blacklist | join(', ') }}"
+                {% elif query and query != '' and genres %} "{{ query }}" with genres: "{{ genres | join(', ') }}"
+                {% elif query and query != '' and blacklist %} "{{ query }}" excluding genres: "{{ blacklist | join(', ') }}"
+                {% elif genres and blacklist %} genres: "{{ genres | join(', ')}}" excluding genres: "{{ blacklist | join(', ') }}"
+                {% elif blacklist %} excluding genres: "{{ blacklist | join(', ') }}"
+                {% elif genres %} genres: "{{ genres | join(', ') }}"
+                {% elif query and query != '' %} "{{ query }}"
+                {% else %} every Anime on the website. {% endif %}
+            </h1>
+        </div>
+        <br> 
+        <div style="max-height: 73vh; overflow-y: auto; border-radius: 3vh; margin:auto; width: 100%;">
+            <table cellspacing=0>
+                <thead>
+                    <tr style="top:0">
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Score (out of 10)</th>
+                        <th>Genres</th>
+                        <th>Episodes</th>
+                        <th>Air Dates</th>
+                        <th>Producers</th>
+                        <th>Studios</th>
+                        <th>Duration</th>
+                        <th>Popularity</th>
+                        <th>Rating</th>
+                        <th>Type</th>
+                        <th>Source</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ix in indices %}
+                    <tr onclick='window.location = "/title?title={{ix[4]}}"' class="actualrow">
+                        {% for data in ix[3:] %} 
+                        <td>{{ data }}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
